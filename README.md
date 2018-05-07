@@ -1,27 +1,31 @@
 # Angular6meanboiler
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
+This project was generated with  angular-cli version 6.0.0.
+
+## infrastructure setup
+
+1. install node on your machine.
+2. install npm.
+3. npm install -g @angular/cli.
+4. go to project repo. perform 'npm install'
+
+
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. run node server in parellel to access backend api. perform 'node server.js'
+2. perform 'npm run local' in another command line to parellely work in angular code.
+3. accesss http://localhost:4200
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+1. perform 'npm run prod'
+2. perform 'node server.js'.
+3. accesss http://localhost:3000
 
-## Running unit tests
+## Pwa features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. App works offline.
+2. Push notifications are available. when user posts a new article.
+3. App works offline and sync data when device comes online. 
+4. Add to homescreen in mobile is available. Install to desktop in machines is also available 

@@ -38,7 +38,6 @@ export class ArticlesComponent {
   }
   addToLocalDB(id, val) {
     if (val && val.length > 0) {
-      debugger
       let self = this;
       let msg = "";
       self.pouchInstance
@@ -51,10 +50,8 @@ export class ArticlesComponent {
           });
         })
         .then(function(response) {
-          debugger
         })
         .catch(function(err) {
-          debugger
           if (err.status == 404) {
             self.pouchInstance
               .put({ _id: id, val: self.articles })

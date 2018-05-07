@@ -1,13 +1,10 @@
-.form{
+.article{
     display: flex;
     flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    margin: 40px 10px;
-    .description,.title{
-        width: 300px;
+    width: calc(100% - 80px);
+    margin: auto;
+    padding: 20px;
+    .title{
+        text-align: center;
     }
-
 }

@@ -12,7 +12,10 @@ declare var PouchDB: any;
 })
 export class ArticleComponent implements OnInit {
   id;
-  article: any;
+  article={
+    title:'',
+    description:''
+  };
   pouchInstance: any;
   constructor(
     private router: Router,
@@ -24,7 +27,6 @@ export class ArticleComponent implements OnInit {
   ngOnInit(){
     let question = this.route.paramMap.pipe(switchMap(
         (params: ParamMap) => {
-          // (+) before `params.get()` turns the string into a number
           this.id = params.get("id");
           return this._articleService.getArticle(this.id);
         }
@@ -39,7 +41,6 @@ export class ArticleComponent implements OnInit {
             self.article = doc.val.find(function(element: any) {
               if (element._id == self.id) return element;
             });
-
           })
           .then(function(response) {})
           .catch(function(err) {

@@ -58,9 +58,8 @@ export class AppComponent implements AfterViewInit {
   }
   pushInitialize() {
     let self = this;
-    if (swRegistration) {
+    if (typeof swRegistration !== "undefined" && swRegistration) {
       console.log(swRegistration);
-      debugger;
       let convertedVapidKey = self.urlBase64ToUint8Array("BMfzirqpnj_E-peR8tHHpJY-AEasiw1_2x-4HleDkmahysDv9hSRvtc8YPySLWMBmZeM2E8eWf7taNAAk2lLT4A");
       swRegistration.pushManager
         .subscribe({

@@ -8,14 +8,15 @@
   <button mat-raised-button color="primary" (click)="submit()">Submit</button>
 </div>
 <div class="articles">
-  <div class="article" *ngFor="let article of articles">
-    <a [routerLink]="['./../article/',article._id]">
-      <div class="article-title">
-        <h4>{{article.title}}</h4>
+  <mat-list>
+  <mat-list-item class="article" *ngFor="let article of articles">
+    
+      <div class="article-title" mat-line>
+        <a [routerLink]="['./../article/',article._id]">{{article.title}}</a>
       </div>
-      <div class="article-detail">
+      <div class="article-detail" mat-line>
         {{article.description}}
       </div>
-    </a>
-  </div>
+  </mat-list-item>
+  </mat-list>
 </div>

@@ -280,7 +280,7 @@ self.addEventListener("notificationclick", function(event) {
   console.log("Notification click: tag", event.notification.tag);
   event.notification.close();
   var url =
-    "https://angular6-mean-pwa-boilerplate.herokuapp.com/#/question/" +
+    "https://angular6-mean-pwa-boilerplate.herokuapp.com/#/article/" +
     event.notification.data;
   event.waitUntil(
     clients

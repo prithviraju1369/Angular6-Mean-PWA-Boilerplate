@@ -15,7 +15,7 @@ self.addEventListener('push', function(event) {
 self.addEventListener('notificationclick', function(event) {
   console.log('Notification click: tag', event.notification.tag);
   event.notification.close();
-  var url = "https://angular6-mean-pwa-boilerplate.herokuapp.com/#/question/" + event.notification.data;
+  var url = "https://angular6-mean-pwa-boilerplate.herokuapp.com/#/article/" + event.notification.data;
   event.waitUntil(
     clients.matchAll({
       type: 'window'

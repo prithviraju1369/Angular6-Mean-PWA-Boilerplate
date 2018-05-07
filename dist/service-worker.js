@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/0.7a9e795df5f877e2820c.js","453cf456efab544a138acf32f83d7823"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","a794093e760648d5de49ae4118a486cf"],["/main.1bb5df68b1b0c4f48cdd.js","e038eb70c9546e074038495187754c7b"],["/polyfills.6badcbb4fe269cf0719e.js","761a8bcfb2c0df41b234c23612443852"],["/runtime.8e528228140dd0dc9e00.js","2371239c10e85bb401e73758847e6d9c"],["/styles.56dabfefa5279df2df2d.css","0fbbebcf01d48ec5b00aff4d8b3a67cb"]];
+var precacheConfig = [["/0.7a9e795df5f877e2820c.js","453cf456efab544a138acf32f83d7823"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","ecf6bc8d9064a96670c1aa22cf914e6b"],["/main.1bb5df68b1b0c4f48cdd.js","e038eb70c9546e074038495187754c7b"],["/polyfills.6badcbb4fe269cf0719e.js","761a8bcfb2c0df41b234c23612443852"],["/runtime.8e528228140dd0dc9e00.js","2371239c10e85bb401e73758847e6d9c"],["/styles.56dabfefa5279df2df2d.css","0fbbebcf01d48ec5b00aff4d8b3a67cb"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -261,7 +261,6 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-
 self.addEventListener("push", function(event) {
   console.log("Service Worker recived a push message", event.data.text());
 
@@ -302,6 +301,7 @@ self.addEventListener("notificationclick", function(event) {
       })
   );
 });
+
 
 
 

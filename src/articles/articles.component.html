@@ -1,0 +1,21 @@
+<div class="form">
+  <mat-form-field class="title">
+    <input matInput placeholder="Title" [(ngModel)]="title">
+  </mat-form-field>
+  <mat-form-field class="description">
+    <input matInput placeholder="Description" [(ngModel)]="description">
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+</div>
+<div class="articles">
+  <div class="article" *ngFor="let article of articles">
+    <a [routerLink]="['./../article/',article._id]">
+      <div class="article-title">
+        <h4>{{article.title}}</h4>
+      </div>
+      <div class="article-detail">
+        {{article.description}}
+      </div>
+    </a>
+  </div>
+</div>

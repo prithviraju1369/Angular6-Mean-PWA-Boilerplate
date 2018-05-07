@@ -1,0 +1,13 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 40px 10px;
+    .description,.title{
+        width: 300px;
+    }
+
+}

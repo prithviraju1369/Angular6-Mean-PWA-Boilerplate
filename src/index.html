@@ -14,7 +14,11 @@
 </head>
 <body>
   <h3 style="text-align:center">Angular6 Mean Stack Boilerplate Template</h3>
-  <app-root></app-root>
+  <app-root>
+    <div class="load-container" id="loadContainer">
+	    <div class="loader"></div>
+	  </div>
+  </app-root>
   <script src="./pouchdb.js"></script>
   <script>
   if ('serviceWorker' in navigator) {

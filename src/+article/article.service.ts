@@ -7,13 +7,14 @@ import { catchError } from "rxjs/operators";
 
 
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ArticleService {
   constructor(private http: HttpClient) {}
 
-  getArticle(id:string): Observable<any> {
+  getArticle(id: string): Observable<any> {
     let result = this.http.get<Object>(`/api/article/?id=${id}`);
     return result;
   }
-
 }

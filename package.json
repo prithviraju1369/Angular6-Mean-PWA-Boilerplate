@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "start": "node server.js",
     "local": "ng serve --proxy-config proxy.config.json",
     "build": "ng build --prod",
     "prod": "ng build --prod && npm run sw",
@@ -29,6 +30,7 @@
     "compression": "^1.7.2",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "express-https-redirect": "^1.0.0",
     "mongoose": "^5.0.17",
     "rxjs": "^6.0.0",
     "web-animations-js": "^2.3.1",

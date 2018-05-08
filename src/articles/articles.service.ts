@@ -7,18 +7,18 @@ import { catchError } from "rxjs/operators";
 
 
 
-@Injectable()
+@Injectable({
+  providedIn: "root"
+})
 export class ArticlesService {
   constructor(private http: HttpClient) {}
 
   getAllArticles(): Observable<any> {
-    let result = this.http
-      .get<Array<Object>>("/api/articles");
+    let result = this.http.get<Array<Object>>("/api/articles");
     return result;
   }
 
   addArticle(article: object): Observable<any> {
-    return this.http
-      .post<Object>('/api/add', article);
+    return this.http.post<Object>("/api/add", article);
   }
 }

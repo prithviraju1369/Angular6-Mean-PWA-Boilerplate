@@ -9,7 +9,7 @@ var httpsRedirect = require("express-https-redirect");
 
 
 //mongodb://localhost:27017/meanstarter
-mongoose.connect('mongodb://prithvi:prithvi@ds113700.mlab.com:13700/meanstackboiler');
+mongoose.connect('mongodb://prithvi:prithvi@ds117540.mlab.com:17540/meanstack');
 
     
 app.use(compression());

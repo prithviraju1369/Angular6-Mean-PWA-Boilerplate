@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+// import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 
 // import { MaterialModule } from "./../material/material.module";
@@ -15,7 +15,6 @@ import { ArticlesModule } from "./../articles/articles.module";
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule,
     ArticlesModule,
     HttpClientModule,
     AppRoutingModule

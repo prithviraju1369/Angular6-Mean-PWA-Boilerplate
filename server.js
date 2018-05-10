@@ -8,7 +8,6 @@ var mongoose = require('mongoose');
 var httpsRedirect = require("express-https-redirect");
 
 
-//mongodb://localhost:27017/meanstarter
 mongoose.connect('mongodb://prithvi:prithvi@ds117540.mlab.com:17540/meanstack');
 
     

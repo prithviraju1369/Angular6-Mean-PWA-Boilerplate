@@ -15,7 +15,9 @@ export class ArticlesComponent {
   pouchInstance: any;
   constructor(private _articlesService: ArticlesService) {
     this.getArticles();
-    this.pouchInstance = new PouchDB("meanboiler");
+    if(window.indexedDB){
+      this.pouchInstance = new PouchDB("meanboiler");
+    }    
   }
   getArticles() {
     let self=this;
@@ -25,6 +27,7 @@ export class ArticlesComponent {
         self.addToLocalDB("articles", self.articles);
       }
     },(err)=>{
+      if(!self.pouchInstance) return;
             self.pouchInstance
               .get("articles")
               .then(function(doc) {
@@ -40,6 +43,7 @@ export class ArticlesComponent {
     if (val && val.length > 0) {
       let self = this;
       let msg = "";
+      if(!self.pouchInstance) return;
       self.pouchInstance
         .get(id)
         .then(function(doc) {
@@ -78,6 +82,7 @@ export class ArticlesComponent {
           offLine.url = "/api/add";
           offLine.data = { title: self.title, description: self.description };
           offLine.type = "article";
+          if (!self.pouchInstance) return;
           self.pouchInstance
             .get("offline")
             .then(function(doc) {

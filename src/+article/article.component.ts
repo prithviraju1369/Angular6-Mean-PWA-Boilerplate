@@ -22,7 +22,9 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private _articleService: ArticleService
   ) {
-    this.pouchInstance = new PouchDB("meanboiler");
+    if (window.indexedDB) {
+      this.pouchInstance = new PouchDB("meanboiler");
+    }
   }
   ngOnInit(){
     let question = this.route.paramMap.pipe(switchMap(
@@ -35,6 +37,7 @@ export class ArticleComponent implements OnInit {
         this.article = c;
       }, err => {
         let self= this;
+        if (!self.pouchInstance) return;
         this.pouchInstance
           .get("articles")
           .then(function(doc) {

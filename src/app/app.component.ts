@@ -17,7 +17,9 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.pouchInstance = new PouchDB("meanboiler");
+    if (window.indexedDB) {
+      this.pouchInstance = new PouchDB("meanboiler");
+    }
     this.online$ = merge(
       of(navigator.onLine),
       fromEvent(window, "online"),
@@ -81,6 +83,7 @@ export class AppComponent implements AfterViewInit {
   }
   syncData() {
     let self = this;
+    if (!self.pouchInstance) return;
     self.pouchInstance
       .get("offline")
       .then(function(doc) {

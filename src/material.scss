@@ -87,6 +87,13 @@ label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
+input:required {
+  box-shadow: none;
+}
+
+input:invalid {
+  box-shadow: none;
+}
 
 /* active state */
 

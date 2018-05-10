@@ -17,7 +17,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   ngAfterViewInit() {
-    debugger
     this.pouchInstance = new PouchDB("meanboiler");
     this.online$ = merge(
       of(navigator.onLine),

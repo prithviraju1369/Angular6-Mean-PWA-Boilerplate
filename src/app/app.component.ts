@@ -13,10 +13,11 @@ export class AppComponent implements AfterViewInit {
   offLine: boolean = false;
   pouchInstance: any;
   constructor(private http: HttpClient) {
-    this.pouchInstance = new PouchDB("meanboiler");
+    
   }
 
   ngAfterViewInit() {
+    this.pouchInstance = new PouchDB("meanboiler");
     this.online$ = merge(
       of(navigator.onLine),
       fromEvent(window, "online"),

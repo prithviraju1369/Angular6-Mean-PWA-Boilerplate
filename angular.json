@@ -25,7 +25,8 @@
               "src/pouchdb.js"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/material.scss"
             ],
             "scripts": []
           },

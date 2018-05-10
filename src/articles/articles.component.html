@@ -1,22 +1,28 @@
 <div class="form">
-  <mat-form-field class="title">
-    <input matInput placeholder="Title" [(ngModel)]="title">
-  </mat-form-field>
-  <mat-form-field class="description">
-    <input matInput placeholder="Description" [(ngModel)]="description">
-  </mat-form-field>
-  <button mat-raised-button color="primary" (click)="submit()">Submit</button>
+   <div class="group">      
+      <input type="text" required [(ngModel)]="title">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Title</label>
+    </div>
+  <div class="group">      
+      <input type="text" required [(ngModel)]="description">
+      <span class="highlight"></span>
+      <span class="bar"></span>
+      <label>Description</label>
+    </div>
+    <button class="btn" type="button" (click)="submit()"><span>Submit</span></button>
 </div>
 <div class="articles">
-  <mat-list>
-  <mat-list-item class="article" *ngFor="let article of articles">
+  <div>
+  <div class="article" *ngFor="let article of articles">
     
-      <div class="article-title" mat-line>
+      <div class="article-title" >
         <a [routerLink]="['./../article/',article._id]">{{article.title}}</a>
       </div>
-      <div class="article-detail" mat-line>
+      <div class="article-detail" >
         {{article.description}}
       </div>
-  </mat-list-item>
-  </mat-list>
+  </div>
+</div>
 </div>

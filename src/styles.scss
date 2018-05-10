@@ -1,29 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/theming';
-@include mat-core();
-$digiOn-app-primary: mat-palette($mat-blue, 600);
-$digiOn-app-accent: mat-palette($mat-green, A200, A100, A400);
-$digiOn-app-warn: mat-palette($mat-red);
-$digiOn-app-theme: mat-light-theme($digiOn-app-primary, $digiOn-app-accent, $digiOn-app-warn);
-@include angular-material-theme($digiOn-app-theme);
-// $digiOff-primary: mat-palette($mat-grey);
-// $digiOff-accent : mat-palette($mat-blue-grey, A200, A100, A400);
-// $digiOff-warn : mat-palette($mat-deep-orange);
-// $digiOff-theme : mat-light-theme($digiOff-primary, $digiOff-accent, $digiOff-warn);
-// .digiOff-theme {
-//   background-color: #DCDCDC;
-//   @include angular-material-theme($digiOff-theme);
-// }
-.mat-input-underline {
-  border-color: black;
-}
-
-md-input-container.ng-invalid.ng-touched {
-  .mat-input-underline {
-    border-color: mat-color($mat-red, 500, 1);
-  }
-}
 
 // site css
 html {

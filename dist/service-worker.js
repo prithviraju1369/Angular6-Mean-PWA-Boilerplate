@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/0.0b3e82fb7a95310eedc8.js","e891c7f63467c3cdf6f43ff8e60342a4"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","134868c1a2c2e28ed2c0959fa091080d"],["/main.cf0061b6880096bb0b57.js","a3ea0ffbe5d717434351dd77fe2dc889"],["/polyfills.6badcbb4fe269cf0719e.js","761a8bcfb2c0df41b234c23612443852"],["/pouchdb.js","2e3c5a43f408681ace6e4bc8815b203b"],["/runtime.7ca8e9a92ce7f120a326.js","e62f1f83bbb765bb2893ea551e60b9e8"],["/styles.56dabfefa5279df2df2d.css","0fbbebcf01d48ec5b00aff4d8b3a67cb"]];
+var precacheConfig = [["/0.1cc4fb8d799128a249ff.js","cb896b9c11f12fc760d2ffe123ec274e"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","d47260ea1f205c1f02611344c1dd874e"],["/main.205a486238b1851ac3c3.js","617c792df89369143fa07b0033e95f51"],["/polyfills.1f6714fec54a55ce6df2.js","89f674d22a1bf4cc95128746f2e59217"],["/pouchdb.js","83287a7820bc2839a25a45f63869645b"],["/runtime.e0209783c4249c64d10f.js","68f47ec88cf694570c69ea7f7f8105ab"],["/styles.7c336077f55fe78953cd.css","a972690126768c761d7496275d08a2c4"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -261,46 +261,6 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-self.addEventListener("push", function(event) {
-  console.log("Service Worker recived a push message", event.data.text());
-
-  var title = "New question posted. Click to open";
-  var content = event.data.text();
-  event.waitUntil(
-    self.registration.showNotification(title, {
-      body: JSON.parse(content).text,
-      data: JSON.parse(content).docId,
-      icon: "./assets/digigyan-48.png"
-    })
-  );
-});
-
-self.addEventListener("notificationclick", function(event) {
-  console.log("Notification click: tag", event.notification.tag);
-  event.notification.close();
-  var url =
-    "https://angular6-mean-pwa-boilerplate.herokuapp.com/#/article/" +
-    event.notification.data;
-  event.waitUntil(
-    clients
-      .matchAll({
-        type: "window"
-      })
-      .then(function(windowClients) {
-        console.log("WindowClients", windowClients);
-        for (var i = 0; i < windowClients.length; i++) {
-          var client = windowClients[i];
-          console.log("WindowClient", client);
-          if (client.url === url && "focus" in client) {
-            return client.focus();
-          }
-        }
-        if (clients.openWindow) {
-          return clients.openWindow(url);
-        }
-      })
-  );
-});
 
 
 

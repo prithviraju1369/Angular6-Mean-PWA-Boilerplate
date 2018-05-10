@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/0.1cc4fb8d799128a249ff.js","cb896b9c11f12fc760d2ffe123ec274e"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","5fc37b7ef4888f4eda55f003666692d9"],["/main.c2fa5949f5a22c669dfc.js","36ba015eb846c8c5278292381712a8f8"],["/polyfills.65edf1eeb6e7f272c69d.js","af807b1aaca176a9d68ab9399e1603b0"],["/pouchdb.js","83287a7820bc2839a25a45f63869645b"],["/runtime.e0209783c4249c64d10f.js","68f47ec88cf694570c69ea7f7f8105ab"],["/styles.e56a9616358d9b8785de.css","873e7c9d089a56681539fbc2db9e0cf3"]];
+var precacheConfig = [["/0.1cc4fb8d799128a249ff.js","cb896b9c11f12fc760d2ffe123ec274e"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","7e4f08d4f51651143d1e4cac859839a0"],["/main.c2fa5949f5a22c669dfc.js","36ba015eb846c8c5278292381712a8f8"],["/polyfills.65edf1eeb6e7f272c69d.js","af807b1aaca176a9d68ab9399e1603b0"],["/runtime.e0209783c4249c64d10f.js","68f47ec88cf694570c69ea7f7f8105ab"],["/styles.e56a9616358d9b8785de.css","873e7c9d089a56681539fbc2db9e0cf3"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -261,43 +261,47 @@ self.addEventListener('fetch', function(event) {
 });
 
 
-self.addEventListener('push', function(event) {
-  console.log('Service Worker recived a push message', event.data.text());
 
-  var title = 'New question posted. Click to open';
-  var content=event.data.text();
+self.addEventListener("push", function(event) {
+  console.log("Service Worker recived a push message", event.data.text());
+
+  var title = "New question posted. Click to open";
+  var content = event.data.text();
   event.waitUntil(
     self.registration.showNotification(title, {
-      'body': JSON.parse(content).text,
-      'data': JSON.parse(content).docId,
-      'icon': './assets/digigyan-48.png'
-    }));
-});
-
-self.addEventListener('notificationclick', function(event) {
-  console.log('Notification click: tag', event.notification.tag);
-  event.notification.close();
-  var url = "https://meanboilerplate.herokuapp.com/#/article/" + event.notification.data;
-  event.waitUntil(
-    clients.matchAll({
-      type: 'window'
-    })
-    .then(function(windowClients) {
-      console.log('WindowClients', windowClients);
-      for (var i = 0; i < windowClients.length; i++) {
-        var client = windowClients[i];
-        console.log('WindowClient', client);
-        if (client.url === url && 'focus' in client) {
-          return client.focus();
-        }
-      }
-      if (clients.openWindow) {
-        return clients.openWindow(url);
-      }
+      body: JSON.parse(content).text,
+      data: JSON.parse(content).docId,
+      icon: "./assets/digigyan-48.png"
     })
   );
 });
 
+self.addEventListener("notificationclick", function(event) {
+  console.log("Notification click: tag", event.notification.tag);
+  event.notification.close();
+  var url =
+    "https://meanboilerplate.herokuapp.com/#/article/" +
+    event.notification.data;
+  event.waitUntil(
+    clients
+      .matchAll({
+        type: "window"
+      })
+      .then(function(windowClients) {
+        console.log("WindowClients", windowClients);
+        for (var i = 0; i < windowClients.length; i++) {
+          var client = windowClients[i];
+          console.log("WindowClient", client);
+          if (client.url === url && "focus" in client) {
+            return client.focus();
+          }
+        }
+        if (clients.openWindow) {
+          return clients.openWindow(url);
+        }
+      })
+  );
+});
 
 
 

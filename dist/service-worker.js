@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/0.0feb9b1dab1b7853327c.js","8161911334cc18c3345f39a69e3178db"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","8df30ffc8caa79d61fe88a54694ac0c0"],["/main.633832e9716d8b04e232.js","a7194849281ae0bd8f9fc01d2a639246"],["/polyfills.65edf1eeb6e7f272c69d.js","af807b1aaca176a9d68ab9399e1603b0"],["/pouchdb.js","103c36de76a371c1b26a5a1a5cf25062"],["/runtime.df8919a983d935724b37.js","58bc5617ab38d0bfda0de28fa5ed42c4"],["/styles.2898ecc6a350cb00ab6f.css","2c33143ce7d8b4558e3fa3960a4f6067"]];
+var precacheConfig = [["/0.0feb9b1dab1b7853327c.js","8161911334cc18c3345f39a69e3178db"],["/assets/digigyan-144.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-168.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-192.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-48.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-512.png","ce19176667f9bce32ce14d7c4a899147"],["/assets/digigyan-72.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/assets/digigyan-96.png","590d20b6cf2c735f60ae4cad6eb899ad"],["/favicon.ico","b9aa7c338693424aae99599bec875b5f"],["/index.html","c2a47d5dcbbb1aa70ef4c85ee0296c96"],["/main.3e248d0bed305d61c53c.js","dd54234eec8b6f434e6121f09c9a0e6f"],["/polyfills.65edf1eeb6e7f272c69d.js","af807b1aaca176a9d68ab9399e1603b0"],["/pouchdb.js","103c36de76a371c1b26a5a1a5cf25062"],["/runtime.df8919a983d935724b37.js","58bc5617ab38d0bfda0de28fa5ed42c4"],["/styles.2898ecc6a350cb00ab6f.css","2c33143ce7d8b4558e3fa3960a4f6067"]];
 var cacheName = 'sw-precache-v3-sw-precache-' + (self.registration ? self.registration.scope : '');
 
 
@@ -262,46 +262,6 @@ self.addEventListener('fetch', function(event) {
 
 
 
-self.addEventListener("push", function(event) {
-  console.log("Service Worker recived a push message", event.data.text());
-
-  var title = "New question posted. Click to open";
-  var content = event.data.text();
-  event.waitUntil(
-    self.registration.showNotification(title, {
-      body: JSON.parse(content).text,
-      data: JSON.parse(content).docId,
-      icon: "./assets/digigyan-48.png"
-    })
-  );
-});
-
-self.addEventListener("notificationclick", function(event) {
-  console.log("Notification click: tag", event.notification.tag);
-  event.notification.close();
-  var url =
-    "https://meanboilerplate.herokuapp.com/#/article/" +
-    event.notification.data;
-  event.waitUntil(
-    clients
-      .matchAll({
-        type: "window"
-      })
-      .then(function(windowClients) {
-        console.log("WindowClients", windowClients);
-        for (var i = 0; i < windowClients.length; i++) {
-          var client = windowClients[i];
-          console.log("WindowClient", client);
-          if (client.url === url && "focus" in client) {
-            return client.focus();
-          }
-        }
-        if (clients.openWindow) {
-          return clients.openWindow(url);
-        }
-      })
-  );
-});
 
 
 

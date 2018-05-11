@@ -7,17 +7,20 @@ import { LocationStrategy, HashLocationStrategy } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
+import { ArticlesComponent } from "./articles.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app.routing";
 
 import { ArticlesModule } from "./../articles/articles.module";
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ArticlesComponent],
   imports: [
     BrowserModule,
     ArticlesModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

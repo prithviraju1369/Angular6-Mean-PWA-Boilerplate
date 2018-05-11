@@ -26,8 +26,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/material.scss",
-              "node_modules/roboto-fontface/css/roboto/roboto-fontface.css"
+              "src/material.scss"
             ],
             "scripts": []
           },
